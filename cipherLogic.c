@@ -21,11 +21,12 @@ int encrypt(FILE *in, FILE *out, char** key){
 	int j;
 	int n;
 	int m;
+	//starting the lowercase cipher
 	for(n = 0; n < strlen(*key); n++){
 		lowerAlphabet[n] = *key[n];
 		
 	}
-	
+	//Completing the lowercase cipher
 	for(j = 0; j < 26; j++){
 		bool exists = false;	
 		for(m = 0; m <=j; m++){
@@ -39,14 +40,14 @@ int encrypt(FILE *in, FILE *out, char** key){
 		}	
 	}
 
-
+	//starting the lowercase cipher
 	for(n = 0; n < strlen(*key); n++){
 		upperAlphabet[n] = upperKey[n];
 		
 		
 	}
 
-
+	//completing the lowercase cipher
 	for(j = 0; j < 26; j++){
 		bool exists = false;
 		for(m = 0; m <=j; m++){
