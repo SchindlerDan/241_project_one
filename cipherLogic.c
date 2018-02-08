@@ -136,6 +136,48 @@ char* lowerKey = *key;
 
 
 }
+	//completing the lowercase cipher
+	for(j = 0; j < 26; j++){
+		bool exists = false;
+		for(m = 0; m <=j; m++){
+			if(upperAlphabet[m] == (90 - j) || upperAlphabet[m] == (122 - j)){
+				exists = true;
+			}
+			
+			
+			
+		}
+		if(!exists){
+			upperAlphabet[j] = 90 - j;
+		}
+		
+		
+	}
+	
+
+
+	while(! feof(in)){
+		char ch;
+		fscanf(in, "%c", &ch);
+		if(ch > 64 && ch < 91){
+			ch = upperAlphabet[ch % 65];
+		}else{
+			ch = lowerAlphabet[ch % 97];
+		}
+		
+		fprintf(out, "%c", ch);
+		
+		
+	}
+	fclose(in);
+	fclose(out);
+	return 0;
+
+
+
+	
+	
+}
 
 
 
