@@ -3,10 +3,10 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
-
-int encrypt(FILE *in, FILE *out, char** key);
-int decrypt(FILE *in, FILE *out, char** key);
+int encrypt(FILE *in, FILE *out, char* key);
+int decrypt(FILE *in, FILE *out, char* key);
 
 
 #endif
