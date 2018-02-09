@@ -33,7 +33,7 @@ int encrypt(FILE *in, FILE *out, char* key){
 	printf("\n");
 	//Completing the lowercase cipheri
 	int offset = 0;
-	for(j = 0; j < 27; j++){
+	for(j = 0; j < 26; j++){
 	//	int exists;
 		exists = 0;	
 		if(26 <= offset){
@@ -53,11 +53,19 @@ int encrypt(FILE *in, FILE *out, char* key){
 			offset++;
 			j = j - 1;
 		}	
-	//	printf("%c ", lowerAlphabet[j]);
+		//printf("%c ", lowerAlphabet[j]);
 	}
-	//printf("\n");
-	int offset = 0;
-	for(j = 0; j < 27; j++){
+	for(j = 0; j < 26; j++){
+		printf("%c", lowerAlphabet[j]);
+	}
+	printf("\n");
+	offset = 0;
+	for(n = 0; n < strlen(key); n++){
+		upperAlphabet[n] = upperKey[n];
+
+	}
+	
+	for(j = 0; j < 26; j++){
 	//	int exists;
 		exists = 0;	
 		if(26 <= offset){
@@ -65,13 +73,13 @@ int encrypt(FILE *in, FILE *out, char* key){
 		}
 		for(m = 0; m < 27; m++){
 			
-			if(lowerAlphabet[m] == (90 - (j + offset)) || lowerAlphabet[m] == (122 - (j + offset))){
+			if(upperAlphabet[m] == (90 - (j + offset)) || upperAlphabet[m] == (122 - (j + offset))){
 				exists = 1;
 			}
 		}
 		
 		if( 0 == exists){
-			lowerAlphabet[j + strlen(key)] = 90 - (j + offset);
+			upperAlphabet[j + strlen(key)] = 90 - (j + offset);
 		}else{
 			printf("%c was found \n", (122 - j));
 			offset++;
@@ -80,7 +88,9 @@ int encrypt(FILE *in, FILE *out, char* key){
 	//	printf("%c ", lowerAlphabet[j]);
 	}
 	printf("\n");
-
+	for(j = 0; j < 26; j++){
+		printf("%c ", upperAlphabet[j]);
+	}
 
 	while(! feof(in)){
 		char ch;
@@ -135,8 +145,8 @@ char* lowerKey = key;
 		printf("%c ", key[n]);
 	}
 	//Completing the lowercase cipher
-	fint offset = 0;
-	for(j = 0; j < 27; j++){
+	int offset = 0;
+	for(j = 0; j < 26; j++){
 	//	int exists;
 		exists = 0;	
 		if(26 <= offset){
@@ -158,9 +168,13 @@ char* lowerKey = key;
 		}	
 	//	printf("%c ", lowerAlphabet[j]);
 	}
+	for(n = 0; n < strlen(key); n++){
+		upperAlphabet[n] = upperKey[n];
+		
+	}
 	//completing the uppercase cipher
-	int offset = 0;
-	for(j = 0; j < 27; j++){
+	offset = 0;
+	for(j = 0; j < 26; j++){
 	//	int exists;
 		exists = 0;	
 		if(26 <= offset){
@@ -168,13 +182,13 @@ char* lowerKey = key;
 		}
 		for(m = 0; m < 27; m++){
 			
-			if(lowerAlphabet[m] == (90 - (j + offset)) || lowerAlphabet[m] == (122 - (j + offset))){
+			if(upperAlphabet[m] == (90 - (j + offset)) || upperAlphabet[m] == (122 - (j + offset))){
 				exists = 1;
 			}
 		}
 		
 		if( 0 == exists){
-			lowerAlphabet[j + strlen(key)] = 90 - (j + offset);
+			upperAlphabet[j + strlen(key)] = 90 - (j + offset);
 		}else{
 			printf("%c was found \n", (122 - j));
 			offset++;
