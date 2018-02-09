@@ -56,34 +56,28 @@ int encrypt(FILE *in, FILE *out, char* key){
 	//	printf("%c ", lowerAlphabet[j]);
 	}
 	//printf("\n");
-	for(j = 0; j < 26; j++){
-		printf("%c ", lowerAlphabet[j]);
-	}
-	printf("\n");
-	//starting the uppercase cipher
-	for(n = 0; n < strlen(key); n++){
-		upperAlphabet[n] = upperKey[n];
-		//printf("%c ", upperAlphabet[n]);
-		
-	}
-
-	//completing the uppercase cipher
-	for(j = 0; j < 26; j++){
-		exists = 0;
-		for(m = 0; m <strlen(key); m++){
-			//exists = 0;
-			if(upperAlphabet[m] == (90 - j) || upperAlphabet[m] == (122 - j)){
+	int offset = 0;
+	for(j = 0; j < 27; j++){
+	//	int exists;
+		exists = 0;	
+		if(26 <= offset){
+			break;
+		}
+		for(m = 0; m < 27; m++){
+			
+			if(lowerAlphabet[m] == (90 - (j + offset)) || lowerAlphabet[m] == (122 - (j + offset))){
 				exists = 1;
 			}
-			
-			
-			
 		}
-		if(0 == exists){
-			upperAlphabet[j] = 90 - j;
-		}
-		printf("%c ", upperAlphabet[n]);
 		
+		if( 0 == exists){
+			lowerAlphabet[j + strlen(key)] = 90 - (j + offset);
+		}else{
+			printf("%c was found \n", (122 - j));
+			offset++;
+			j = j - 1;
+		}	
+	//	printf("%c ", lowerAlphabet[j]);
 	}
 	printf("\n");
 
@@ -141,44 +135,52 @@ char* lowerKey = key;
 		printf("%c ", key[n]);
 	}
 	//Completing the lowercase cipher
-	for(j = 0; j < 26; j++){
+	fint offset = 0;
+	for(j = 0; j < 27; j++){
+	//	int exists;
 		exists = 0;	
-		for(m = 0; m < strlen(key); m++){
+		if(26 <= offset){
+			break;
+		}
+		for(m = 0; m < 27; m++){
 			
-			if(lowerAlphabet[m] == (90 - j) || lowerAlphabet[m] == (122 - j)){
+			if(lowerAlphabet[m] == (90 - (j + offset)) || lowerAlphabet[m] == (122 - (j + offset))){
 				exists = 1;
 			}
 		}
 		
-		if(0 == exists){
-			lowerAlphabet[j] = 122 - j;
-			printf("%c ", lowerAlphabet[j]);
+		if( 0 == exists){
+			lowerAlphabet[j + strlen(key)] = 122 - (j + offset);
+		}else{
+			printf("%c was found \n", (122 - j));
+			offset++;
+			j = j - 1;
 		}	
+	//	printf("%c ", lowerAlphabet[j]);
 	}
-	printf("\n");
-	//starting the uppercase cipher
-	for(n = 0; n < strlen(key); n++){
-		upperAlphabet[n] = upperKey[n];
-
-
-}
 	//completing the uppercase cipher
-	for(j = 0; j < 26; j++){
-		exists = 0;
-		for(m = 0; m <strlen(key); m++){
+	int offset = 0;
+	for(j = 0; j < 27; j++){
+	//	int exists;
+		exists = 0;	
+		if(26 <= offset){
+			break;
+		}
+		for(m = 0; m < 27; m++){
 			
-			if(upperAlphabet[m] == (90 - j) || upperAlphabet[m] == (122 - j)){
+			if(lowerAlphabet[m] == (90 - (j + offset)) || lowerAlphabet[m] == (122 - (j + offset))){
 				exists = 1;
 			}
-			
-			
-			
-		}
-		if(0 == exists){
-			upperAlphabet[j] = 90 - j;
 		}
 		
-		
+		if( 0 == exists){
+			lowerAlphabet[j + strlen(key)] = 90 - (j + offset);
+		}else{
+			printf("%c was found \n", (122 - j));
+			offset++;
+			j = j - 1;
+		}	
+	//	printf("%c ", lowerAlphabet[j]);
 	}
 	
 
