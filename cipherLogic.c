@@ -168,6 +168,14 @@ char* lowerKey = key;
 		}	
 	//	printf("%c ", lowerAlphabet[j]);
 	}
+
+	printf("Completed lowercase alphabet: ");
+	for(n = 0; n < 26; n++){
+		printf("%c ", lowerAlphabet[n]);
+	}
+	printf("\n");
+
+
 	for(n = 0; n < strlen(key); n++){
 		upperAlphabet[n] = upperKey[n];
 		
@@ -196,8 +204,11 @@ char* lowerKey = key;
 		}	
 	//	printf("%c ", lowerAlphabet[j]);
 	}
-	
-
+	printf("Upper alphabet cipher is: ");
+	for(n = 0; n < 26; n++){
+		printf("%c ", upperAlphabet[n]);
+	}
+	printf("\n");
 
 	while(! feof(in)){
 		char ch;
@@ -212,8 +223,10 @@ char* lowerKey = key;
 		for(i = 0; i < 26; i++){
 			if(ch == lowerAlphabet[i]){
 				ch = i + 97;
+				break;
 			}else if(ch == upperAlphabet[i]){
 				ch = i + 65;
+				break;
 			}
 		}
 		printf(" and deciphered it into %c\n", ch);
