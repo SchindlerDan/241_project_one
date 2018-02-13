@@ -18,14 +18,14 @@ int main(int argc, const char** argv){
 	char option = 'q';
 	
 	if(in == NULL || out == NULL){
-		printf("File could not be found! Oh No!\n");
+		printf("File could not be found\n");
 		exit(1);
 	}
-	
-	while(option != 'D' || option != 'E' || option != 'e' || option != 'd'){
 	printf("Please enter whether you want to encrypt or decrypt a file. E for encrypt, D for decrypt\n");
+	while(option != 'D' || option != 'E' || option != 'e' || option != 'd'){
+	//printf("Please enter whether you want to encrypt or decrypt a file. E for encrypt, D for decrypt\n");
 	scanf("%c", &option);
-	printf("You chose option %c\n", option);
+	//printf("You chose option %c\n", option);
 	//here's where we would use the encrypt/decrypt methods
 	if(option == 'd' || option == 'D'){
 		//*in, *out, **key
@@ -42,7 +42,7 @@ int main(int argc, const char** argv){
 	
 	printf("Program has finished running\n");
 
-	
+		
 
 
 
